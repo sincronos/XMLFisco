@@ -4,6 +4,10 @@ using SincronosXMLFiscal.BLL;
 using SincronosXMLFiscal.Commands;
 using Microsoft.Win32;
 using SincronosXMLFiscal.Util;
+using System.Data;
+using System.Xml.Linq;
+using System.IO;
+using System.Windows.Forms;
 
 namespace SincronosXMLFiscal.ViewModel
 {
@@ -11,10 +15,11 @@ namespace SincronosXMLFiscal.ViewModel
     {
 
         private string txtCaminhoArquivo;
-
+    
         private EmitenteBLL EmiteBLL;
         private List<TNfeProc> listaNFE = new List<TNfeProc>();
-        string ArquivoXMLSelecionado;
+        private List<TNFeInfNFeDetProd> listaProd = new List<TNFeInfNFeDetProd>();
+        string PastaXMLSelecionado;
 
 
         public RelayCommand ProcessarCommand { get; set; }
@@ -24,7 +29,7 @@ namespace SincronosXMLFiscal.ViewModel
         public PrincipalViewModel()
         {
             EmiteBLL = new EmitenteBLL();
-            ArquivoXMLSelecionado = "";
+            PastaXMLSelecionado = "";
             TxtCaminhoArquivo = "";
             CaminhoPastaXMLCommand = new RelayCommand(CaminhoPastaXML);
             ProcessarCommand = new RelayCommand(Processar,CanProcessar);
@@ -33,26 +38,43 @@ namespace SincronosXMLFiscal.ViewModel
 
         private bool CanProcessar(object obj)
         {
-            return !string.IsNullOrEmpty(ArquivoXMLSelecionado);
+            return !string.IsNullOrEmpty(PastaXMLSelecionado);
         }
 
         private void Processar(object obj)
         {
-            ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(ArquivoXMLSelecionado));
+
+
+            DirectoryInfo diretorio = new DirectoryInfo(PastaXMLSelecionado);
+
+            FileInfo[] Arquivos = diretorio.GetFiles("*.*");
+
+            string[] files = System.IO.Directory.GetFiles(TxtCaminhoArquivo);
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));    
+            }
+         
+
         }
 
         private void CaminhoPastaXML(object obj)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            PastaXMLSelecionado = fbd.SelectedPath.ToString();
 
-            dlg.InitialDirectory = "C:\\";
-            dlg.RestoreDirectory = true;
+            TxtCaminhoArquivo = PastaXMLSelecionado;
 
-            if (dlg.ShowDialog() == true)
-            {
-                ArquivoXMLSelecionado = dlg.FileName;
-                TxtCaminhoArquivo = ArquivoXMLSelecionado;
-            }
+            //dlg.InitialDirectory = "C:\\";
+            //dlg.RestoreDirectory = true;
+
+            //if (dlg.ShowDialog() == true)
+            //{
+            //    PastaXMLSelecionado = dlg.FileName;
+            //    TxtCaminhoArquivo = PastaXMLSelecionado;
+            //}
              
         }
 
@@ -69,7 +91,14 @@ namespace SincronosXMLFiscal.ViewModel
             set { listaNFE = value; OnPropertyChanged("ListaNFE"); }
         }
 
-        
+
+        public List<TNFeInfNFeDetProd> ListaProd
+        {
+            get { return listaProd; }
+            set { listaProd = value; OnPropertyChanged("ListaProd"); }
+        }
+
+
 
 
     }
