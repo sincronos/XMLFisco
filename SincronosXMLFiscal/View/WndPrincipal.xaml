@@ -47,11 +47,11 @@
                         
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
-                                <DataGrid ItemsSource="{Binding DataContext.ListaProd,RelativeSource={RelativeSource AncestorType=DataGrid}}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+                                <DataGrid ItemsSource="{Binding ListaNFE}"  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Código" Binding="{Binding Path=NFe.det.prod.cProd}" Width="80"/>
-                                        <DataGridTextColumn Header="Produto" Binding="{Binding Path=NFe.det.prod.xProd}" Width="150"/>
-                                    </DataGrid.Columns>
+                                        <DataGridTextColumn Header="Código" Width="80" Binding="{Binding Path=NFe.infNFe.det.prod.cProd}"/>
+                                        <DataGridTextColumn Header="Produto" Width="150" Binding="{Binding Path=NFe.infNFe.det.prod.xProd}"/>
+                                    </DataGrid.Columns>                                    
                                 </DataGrid>
                             </DataTemplate>
                         </DataGrid.RowDetailsTemplate>

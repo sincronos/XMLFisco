@@ -17,8 +17,11 @@ namespace SincronosXMLFiscal.ViewModel
         private string txtCaminhoArquivo;
     
         private EmitenteBLL EmiteBLL;
+        
         private List<TNfeProc> listaNFE = new List<TNfeProc>();
-        private List<TNFeInfNFeDetProd> listaProd = new List<TNFeInfNFeDetProd>();
+        private List<TNfeProc> listaProd = new List<TNfeProc>();
+        private TNFeInfNFeDetProd produto = new TNFeInfNFeDetProd();
+
         string PastaXMLSelecionado;
 
 
@@ -53,7 +56,9 @@ namespace SincronosXMLFiscal.ViewModel
 
             for (int i = 0; i < files.Length; i++)
             {
-                ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));    
+               
+                ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
+
             }
          
 
@@ -66,18 +71,15 @@ namespace SincronosXMLFiscal.ViewModel
             PastaXMLSelecionado = fbd.SelectedPath.ToString();
 
             TxtCaminhoArquivo = PastaXMLSelecionado;
-
-            //dlg.InitialDirectory = "C:\\";
-            //dlg.RestoreDirectory = true;
-
-            //if (dlg.ShowDialog() == true)
-            //{
-            //    PastaXMLSelecionado = dlg.FileName;
-            //    TxtCaminhoArquivo = PastaXMLSelecionado;
-            //}
-             
+ 
         }
 
+        public TNFeInfNFeDetProd Produto
+        {
+            get { return produto; }
+            set { produto = value; }
+        }
+        
 
         public string TxtCaminhoArquivo
         {
@@ -92,7 +94,7 @@ namespace SincronosXMLFiscal.ViewModel
         }
 
 
-        public List<TNFeInfNFeDetProd> ListaProd
+        public List<TNfeProc> ListaProd
         {
             get { return listaProd; }
             set { listaProd = value; OnPropertyChanged("ListaProd"); }
