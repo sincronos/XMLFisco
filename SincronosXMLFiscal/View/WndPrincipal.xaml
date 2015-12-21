@@ -36,22 +36,23 @@
 
                     <TextBox x:Name="txtCaminhoArquivo" Text="{Binding TxtCaminhoArquivo,Mode=TwoWay}" Grid.Column="1" Margin="3,0,3,3" VerticalAlignment="Bottom" Height="26" />
 
-                    <DataGrid x:Name="dgNFCE" ItemsSource="{Binding ListaNFE}" AutoGenerateColumns="False"  IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Column="1" Margin="3" Grid.Row="2" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dgNFCE" ItemsSource="{Binding ListaNFE}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Column="1" Margin="3" Grid.Row="2" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Número" Binding="{Binding Path=NFe.infNFe.ide.cNF}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Path=protNFe.infProt.xMotivo}"/>
                             <DataGridTextColumn Header="Chave" Binding="{Binding Path=NFe.infNFe.Id}"/>
                             <DataGridTextColumn Header="Emissão" Binding="{Binding Path=NFe.infNFe.ide.dhEmi}"/>
-                            <DataGridTextColumn Header="Status"/>
-                            <DataGridTextColumn Header="Total"  Binding="{Binding NFe.infNFe.total.ICMSTot.vNF}" Width="*"/>
+                            <DataGridTextColumn Header="Total"  Binding="{Binding NFe.infNFe.total.ICMSTot.vNF}"/>
                         </DataGrid.Columns>
                         
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
-                                <DataGrid ItemsSource="{Binding ListaNFE}"  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                                <!--<TextBlock Text="{Binding Path=NFe.infNFe.det.prod.xProd}"></TextBlock>-->
+                                <DataGrid ItemsSource="{Binding ElementName=dgNFCE, Path=SelectedItem.NFe.infNFe.det}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Código" Width="80" Binding="{Binding Path=NFe.infNFe.det.prod.cProd}"/>
-                                        <DataGridTextColumn Header="Produto" Width="150" Binding="{Binding Path=NFe.infNFe.det.prod.xProd}"/>
-                                    </DataGrid.Columns>                                    
+                                        <DataGridTextColumn Header="Código" Width="80" Binding="{Binding Path=prod.cProd}"/>
+                                        <DataGridTextColumn Header="Produto" Width="150" Binding="{Binding Path=prod.xProd}"/>
+                                    </DataGrid.Columns>
                                 </DataGrid>
                             </DataTemplate>
                         </DataGrid.RowDetailsTemplate>

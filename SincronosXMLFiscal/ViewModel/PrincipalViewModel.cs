@@ -8,6 +8,7 @@ using System.Data;
 using System.Xml.Linq;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 namespace SincronosXMLFiscal.ViewModel
 {
@@ -18,7 +19,7 @@ namespace SincronosXMLFiscal.ViewModel
     
         private EmitenteBLL EmiteBLL;
         
-        private List<TNfeProc> listaNFE = new List<TNfeProc>();
+        private ObservableCollection<TNfeProc> listaNFE = new ObservableCollection<TNfeProc>();
         private List<TNfeProc> listaProd = new List<TNfeProc>();
         private TNFeInfNFeDetProd produto = new TNFeInfNFeDetProd();
 
@@ -47,7 +48,7 @@ namespace SincronosXMLFiscal.ViewModel
         private void Processar(object obj)
         {
 
-
+            ListaNFE.Clear();
             DirectoryInfo diretorio = new DirectoryInfo(PastaXMLSelecionado);
 
             FileInfo[] Arquivos = diretorio.GetFiles("*.*");
@@ -60,6 +61,8 @@ namespace SincronosXMLFiscal.ViewModel
                 ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
 
             }
+
+
          
 
         }
@@ -87,7 +90,7 @@ namespace SincronosXMLFiscal.ViewModel
             set { txtCaminhoArquivo = value; OnPropertyChanged("TxtCaminhoArquivo"); }
         }
 
-        public List<TNfeProc> ListaNFE
+        public ObservableCollection<TNfeProc> ListaNFE
         {
             get { return listaNFE; }
             set { listaNFE = value; OnPropertyChanged("ListaNFE"); }
