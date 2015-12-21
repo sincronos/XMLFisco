@@ -68,6 +68,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Model\MBase.cs" />
     <Compile Include="Model\nfe_v3_10.cs" />
+    <Compile Include="Model\XMLNaoProcessadoModel.cs" />
     <Compile Include="Util\UtilXml.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
     <Compile Include="View\WndPrincipal.xaml.cs">

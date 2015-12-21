@@ -4,6 +4,7 @@ using SincronosXMLFiscal.BLL;
 using SincronosXMLFiscal.Commands;
 using Microsoft.Win32;
 using SincronosXMLFiscal.Util;
+using SincronosXMLFiscal.Model;
 using System.Data;
 using System.Xml.Linq;
 using System.IO;
@@ -16,15 +17,13 @@ namespace SincronosXMLFiscal.ViewModel
     {
 
         private string txtCaminhoArquivo;
-    
         private EmitenteBLL EmiteBLL;
-        
         private ObservableCollection<TNfeProc> listaNFE = new ObservableCollection<TNfeProc>();
-        private List<TNfeProc> listaProd = new List<TNfeProc>();
-        private TNFeInfNFeDetProd produto = new TNFeInfNFeDetProd();
+        private ObservableCollection<XMLNaoProcessadoModel> naoProcessadosCollection = new ObservableCollection<XMLNaoProcessadoModel>();
+        private XMLNaoProcessadoModel xmlNaoProcessado = new XMLNaoProcessadoModel();
+
 
         string PastaXMLSelecionado;
-
 
         public RelayCommand ProcessarCommand { get; set; }
         public RelayCommand CaminhoPastaXMLCommand { get; set; }
@@ -50,20 +49,24 @@ namespace SincronosXMLFiscal.ViewModel
 
             ListaNFE.Clear();
             DirectoryInfo diretorio = new DirectoryInfo(PastaXMLSelecionado);
-
             FileInfo[] Arquivos = diretorio.GetFiles("*.*");
-
             string[] files = System.IO.Directory.GetFiles(TxtCaminhoArquivo);
 
             for (int i = 0; i < files.Length; i++)
             {
-               
-                ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
+                try
+                {
+                    ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
+                }
+                catch (System.Exception ex)
+                {
+                    XmlNaoProcessado.ArquivoNaoProcessado = ex.Data["NaoProcessado"].ToString();
+                    NaoProcessados.Add(XmlNaoProcessado);
+
+                }
+                
 
             }
-
-
-         
 
         }
 
@@ -76,13 +79,13 @@ namespace SincronosXMLFiscal.ViewModel
             TxtCaminhoArquivo = PastaXMLSelecionado;
  
         }
-
-        public TNFeInfNFeDetProd Produto
-        {
-            get { return produto; }
-            set { produto = value; }
-        }
         
+
+        public XMLNaoProcessadoModel XmlNaoProcessado
+        {
+            get { return xmlNaoProcessado; }
+            set { xmlNaoProcessado = value; OnPropertyChanged("XmlNaoProcessado"); }
+        }
 
         public string TxtCaminhoArquivo
         {
@@ -90,19 +93,19 @@ namespace SincronosXMLFiscal.ViewModel
             set { txtCaminhoArquivo = value; OnPropertyChanged("TxtCaminhoArquivo"); }
         }
 
+    
+
+        public ObservableCollection<XMLNaoProcessadoModel> NaoProcessados
+        {
+            get { return naoProcessadosCollection; }
+            set { naoProcessadosCollection = value; OnPropertyChanged("NaoProcessados"); }
+        }
+
         public ObservableCollection<TNfeProc> ListaNFE
         {
             get { return listaNFE; }
             set { listaNFE = value; OnPropertyChanged("ListaNFE"); }
         }
-
-
-        public List<TNfeProc> ListaProd
-        {
-            get { return listaProd; }
-            set { listaProd = value; OnPropertyChanged("ListaProd"); }
-        }
-
 
 
 

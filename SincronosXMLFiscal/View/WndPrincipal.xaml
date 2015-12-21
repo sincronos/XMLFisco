@@ -19,7 +19,7 @@
 
         <TabControl Grid.Row="1" Grid.Column="1" >
 
-            <TabItem Header="NFC-e" >
+            <TabItem Header="Processados" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="37*"/>
@@ -44,24 +44,49 @@
                             <DataGridTextColumn Header="Emissão" Binding="{Binding Path=NFe.infNFe.ide.dhEmi}"/>
                             <DataGridTextColumn Header="Total"  Binding="{Binding NFe.infNFe.total.ICMSTot.vNF}"/>
                         </DataGrid.Columns>
-                        
+
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
-                                <!--<TextBlock Text="{Binding Path=NFe.infNFe.det.prod.xProd}"></TextBlock>-->
                                 <DataGrid ItemsSource="{Binding ElementName=dgNFCE, Path=SelectedItem.NFe.infNFe.det}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Código" Width="80" Binding="{Binding Path=prod.cProd}"/>
-                                        <DataGridTextColumn Header="Produto" Width="150" Binding="{Binding Path=prod.xProd}"/>
+                                        <DataGridTextColumn Header="Produto" Width="200" Binding="{Binding Path=prod.xProd}"/>
+                                        <DataGridTextColumn Header="Unidade" Width="150" Binding="{Binding Path=prod.uCom}"/>
+                                        <DataGridTextColumn Header="Qtde" Width="80" Binding="{Binding Path=prod.qCom}"/>
+                                        <DataGridTextColumn Header="Vlr. Unit." Width="80" Binding="{Binding Path=prod.vUnCom,StringFormat={}{0:N0}}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </DataTemplate>
                         </DataGrid.RowDetailsTemplate>
-                        
+
                     </DataGrid>
 
                     <Button x:Name="btnFolder" Content="Abrir pasta" Command="{Binding CaminhoPastaXMLCommand}" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="3,0,0,3" Height="25" Width="73"/>
                     <Button Content="Processar" Command="{Binding ProcessarCommand}" Grid.Column="2" HorizontalAlignment="Left" Margin="3,3,3,3" Grid.Row="3" VerticalAlignment="Top" Width="70"/>
 
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Não Processados">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="316*"/>
+                        <RowDefinition Height="36*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="539*"/>
+                        <ColumnDefinition Width="12*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="dgNaoProcessados" ItemsSource="{Binding NaoProcessados}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Row="1" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Arquivo" Binding="{Binding Path=ArquivoNaoProcessado}" Width="*" />
+                        </DataGrid.Columns>    
+                    </DataGrid>
+                    
+                    
                 </Grid>
             </TabItem>
 
