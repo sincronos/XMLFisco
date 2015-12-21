@@ -73,3 +73,5 @@ F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.exe
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.pdb
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\bin\Debug\SincronosXMLFiscal.pdb
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\App.baml
+E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal_MarkupCompile.lref

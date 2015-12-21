@@ -4,7 +4,6 @@ using SincronosXMLFiscal.BLL;
 using SincronosXMLFiscal.Commands;
 using Microsoft.Win32;
 using SincronosXMLFiscal.Util;
-using SincronosXMLFiscal.Model;
 using System.Data;
 using System.Xml.Linq;
 using System.IO;
@@ -22,6 +21,7 @@ namespace SincronosXMLFiscal.ViewModel
         private ObservableCollection<XMLNaoProcessadoModel> naoProcessadosCollection = new ObservableCollection<XMLNaoProcessadoModel>();
         private XMLNaoProcessadoModel xmlNaoProcessado = new XMLNaoProcessadoModel();
 
+        private decimal total;
 
         string PastaXMLSelecionado;
 
@@ -56,7 +56,13 @@ namespace SincronosXMLFiscal.ViewModel
             {
                 try
                 {
+                    
                     ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
+                    //Total += double.Parse(ListaNFE[i].NFe.infNFe.total.ICMSTot.vNF);
+                    decimal result;
+                    decimal.TryParse(ListaNFE[i].NFe.infNFe.total.ICMSTot.vNF, out result);
+                    Total += result;
+                                       
                 }
                 catch (System.Exception ex)
                 {
@@ -64,9 +70,13 @@ namespace SincronosXMLFiscal.ViewModel
                     NaoProcessados.Add(XmlNaoProcessado);
 
                 }
-                
 
             }
+
+
+           
+                       
+
 
         }
 
@@ -78,6 +88,15 @@ namespace SincronosXMLFiscal.ViewModel
 
             TxtCaminhoArquivo = PastaXMLSelecionado;
  
+        }
+
+
+        
+
+        public decimal Total
+        {
+            get { return total; }
+            set { total = value; OnPropertyChanged("Total"); }
         }
         
 
