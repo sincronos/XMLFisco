@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:infraConverters="clr-namespace:SincronosXMLFiscal.InfraEstrutura.Converters"
-        Title="Leitor XML Fiscal" Height="538.385" Width="595.745" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Leitor XML Fiscal" Height="538.385" Width="771.245" WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Window.Resources>
         <infraConverters:ZeroToStringConverter x:Key="ZeroToStringConverter" EmptStringValue="0"/>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
@@ -35,14 +35,15 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="475*"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="398*"/>
+                        <ColumnDefinition Width="79"/>
+                        <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
 
                     <TextBox x:Name="txtCaminhoArquivo" Text="{Binding TxtCaminhoArquivo,Mode=TwoWay}" Grid.Column="1" Margin="3,0,3,3" VerticalAlignment="Bottom" Height="26" />
 
-                    <DataGrid x:Name="dgNFCE" ItemsSource="{Binding ListaNFE}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Column="1" Margin="3" Grid.Row="2" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dgNFCE" ItemsSource="{Binding ListaNFE}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Column="1" Margin="3" Grid.Row="2" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Número" Binding="{Binding Path=NFe.infNFe.ide.cNF}"/>
                             <DataGridTextColumn Header="Status" Binding="{Binding Path=protNFe.infProt.xMotivo}"/>
@@ -70,18 +71,18 @@
                     </DataGrid>
 
                     <Button x:Name="btnFolder" Content="Abrir pasta" Command="{Binding CaminhoPastaXMLCommand}" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="3,0,0,3" Height="25" Width="73"/>
-                    <Button Content="Processar" Command="{Binding ProcessarCommand}" Grid.Column="2" HorizontalAlignment="Left" Margin="3,3,0,0" Grid.Row="3" VerticalAlignment="Top" Width="70" Height="25"/>
-                    
-                    <DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,3,0">
+                    <Button Content="Processar" Command="{Binding ProcessarCommand}" Grid.Column="3" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Width="70" Height="25"/>
+
+                    <DockPanel Grid.Column="1" LastChildFill="False" Grid.Row="4" Grid.ColumnSpan="3" Margin="0,0,3,0">
                         <StatusBar DockPanel.Dock="Bottom">
                             <StatusBarItem>
-                                <TextBlock>Total de arquivos: </TextBlock>
-                            </StatusBarItem>  
+                                <TextBlock>Total de arquivos:</TextBlock>
+                            </StatusBarItem>
                             <StatusBarItem>
                                 <TextBlock Text="{Binding ElementName=dgNFCE,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}"/>
                             </StatusBarItem>
                             <StatusBarItem>
-                                <TextBlock>Valor Total: R$ </TextBlock>
+                                <TextBlock>Valor Total: R$</TextBlock>
                             </StatusBarItem>
                             <StatusBarItem>
                                 <TextBlock Text="{Binding Total}"/>
@@ -94,14 +95,15 @@
             <TabItem Header="Não Processados">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="15*"/>
-                        <RowDefinition Height="316*"/>
-                        <RowDefinition Height="36*"/>
+                        <RowDefinition Height="18*"/>
+                        <RowDefinition Height="384*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="24*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="9*"/>
-                        <ColumnDefinition Width="539*"/>
-                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="710*"/>
+                        <ColumnDefinition Width="11*"/>
                     </Grid.ColumnDefinitions>
 
                     <DataGrid x:Name="dgNaoProcessados" ItemsSource="{Binding NaoProcessados}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Row="1" Grid.Column="1">
@@ -110,6 +112,16 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
+                    <DockPanel LastChildFill="False" Grid.Row="3" Grid.Column="1" Margin="0,0,3,0">
+                        <StatusBar DockPanel.Dock="Bottom">
+                            <StatusBarItem>
+                                <TextBlock>Total de Arquivos: </TextBlock>
+                            </StatusBarItem>
+                            <StatusBarItem>
+                                <TextBlock Text="{Binding ElementName=dgNaoProcessados,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}" TextAlignment="Center" Width="50"/>
+                            </StatusBarItem>
+                        </StatusBar>
+                    </DockPanel>
 
                 </Grid>
             </TabItem>
