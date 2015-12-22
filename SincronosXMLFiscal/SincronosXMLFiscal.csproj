@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="BLL\EmitenteBLL.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="InfraEstrutura\Converters\DecimaltoNumericConverter.cs" />
     <Compile Include="InfraEstrutura\Converters\ZeroToStringConverter.cs" />
     <Compile Include="Model\MBase.cs" />
     <Compile Include="Model\nfe_v3_10.cs" />

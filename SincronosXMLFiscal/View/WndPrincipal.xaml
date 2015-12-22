@@ -7,6 +7,7 @@
 
     <Window.Resources>
         <infraConverters:ZeroToStringConverter x:Key="ZeroToStringConverter" EmptStringValue="0"/>
+        <infraConverters:DecimaltoNumericConverter x:Key="DecimaltoNumericConverter" />
     </Window.Resources>
 
     <Grid>
@@ -79,13 +80,13 @@
                                 <TextBlock>Total de arquivos:</TextBlock>
                             </StatusBarItem>
                             <StatusBarItem>
-                                <TextBlock Text="{Binding ElementName=dgNFCE,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}"/>
+                                <TextBlock Text="{Binding ElementName=dgNFCE,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}" TextAlignment="Center" Width="50"/>
                             </StatusBarItem>
                             <StatusBarItem>
-                                <TextBlock>Valor Total: R$</TextBlock>
+                                <TextBlock>Valor Total: </TextBlock>
                             </StatusBarItem>
                             <StatusBarItem>
-                                <TextBlock Text="{Binding Total}"/>
+                                <TextBlock Text="{Binding Total,Converter={StaticResource ResourceKey=DecimaltoNumericConverter}}" Width="100"/>
                             </StatusBarItem>
                         </StatusBar>
                     </DockPanel>

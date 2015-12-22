@@ -17,20 +17,7 @@ namespace SincronosXMLFiscal.Util
 
         public static T DeserializeObject<T>(string fileName)
         {
-
-            string[] nameList = fileName.Split('\\');
-            string naoProcessado = "";
-
-            for (int i = 0; i < nameList.Length; i++)
-            {
-                if (nameList[i].Contains("-caneve.xml"))
-                {
-                    naoProcessado = nameList[i];
-                }
-            }
-
-
-
+            
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(T));
@@ -45,12 +32,10 @@ namespace SincronosXMLFiscal.Util
                 return i;
 
             }
-            catch (InvalidOperationException)
+            catch (Exception)
             {
-                InvalidOperationException io = new InvalidOperationException("Erro no XML");
-                io.Data.Add("NaoProcessado",naoProcessado);
-                throw io;
-
+                Exception ex = new Exception("Erro no XML");
+                throw ex;
             }
 
          

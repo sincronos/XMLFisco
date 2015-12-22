@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace SincronosXMLFiscal.Model
 {
-    public class XMLNaoProcessadoModel
+    public class XMLNaoProcessadoModel : MBase
     {
 
-       public string ArquivoNaoProcessado { get; set; }
+        private string arquivoNaoProcessado;
+       public string ArquivoNaoProcessado 
+       {
+           get { return arquivoNaoProcessado; }
+           set { arquivoNaoProcessado = value; OnPropertyChanged("ArquivoNaoProcessado"); }
+       }
 
 
     }

@@ -9,6 +9,8 @@ using System.Xml.Linq;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using System;
+using System.Globalization;
 
 namespace SincronosXMLFiscal.ViewModel
 {
@@ -21,7 +23,8 @@ namespace SincronosXMLFiscal.ViewModel
         private ObservableCollection<XMLNaoProcessadoModel> naoProcessadosCollection = new ObservableCollection<XMLNaoProcessadoModel>();
         private XMLNaoProcessadoModel xmlNaoProcessado = new XMLNaoProcessadoModel();
 
-        private decimal total;
+        private decimal total = 0;
+        decimal valorTotal = 0;
 
         string PastaXMLSelecionado;
 
@@ -35,7 +38,7 @@ namespace SincronosXMLFiscal.ViewModel
             PastaXMLSelecionado = "";
             TxtCaminhoArquivo = "";
             CaminhoPastaXMLCommand = new RelayCommand(CaminhoPastaXML);
-            ProcessarCommand = new RelayCommand(Processar,CanProcessar);
+            ProcessarCommand = new RelayCommand(Processar, CanProcessar);
 
         }
 
@@ -51,34 +54,42 @@ namespace SincronosXMLFiscal.ViewModel
             DirectoryInfo diretorio = new DirectoryInfo(PastaXMLSelecionado);
             FileInfo[] Arquivos = diretorio.GetFiles("*.*");
             string[] files = System.IO.Directory.GetFiles(TxtCaminhoArquivo);
+            int cont = 0;
 
-            for (int i = 0; i < files.Length; i++)
+            foreach(FileInfo File in Arquivos)
             {
+                
+
                 try
                 {
                     
-                    ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(files[i]));
-                    //Total += double.Parse(ListaNFE[i].NFe.infNFe.total.ICMSTot.vNF);
-                    decimal result;
-                    decimal.TryParse(ListaNFE[i].NFe.infNFe.total.ICMSTot.vNF, out result);
-                    Total += result;
-                                       
-                }
-                catch (System.Exception ex)
-                {
-                    XmlNaoProcessado.ArquivoNaoProcessado = ex.Data["NaoProcessado"].ToString();
-                    NaoProcessados.Add(XmlNaoProcessado);
+                    string nameFile = File.ToString();
+                    string naoProcessado = "";
 
+                    if (nameFile.Contains("-caneve.xml"))
+                    {
+                        naoProcessado = nameFile;
+                        XmlNaoProcessado.ArquivoNaoProcessado = naoProcessado;
+                        NaoProcessados.Add(xmlNaoProcessado);
+                    }
+
+                    ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(File.FullName));
+                    Total += decimal.Parse(ListaNFE[cont].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"));
+                    cont += 1;
+                                        
+
+                }
+                catch
+                {
+                    //MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
 
-
-           
-                       
-
+            
 
         }
+
 
         private void CaminhoPastaXML(object obj)
         {
@@ -87,18 +98,16 @@ namespace SincronosXMLFiscal.ViewModel
             PastaXMLSelecionado = fbd.SelectedPath.ToString();
 
             TxtCaminhoArquivo = PastaXMLSelecionado;
- 
+
         }
 
-
-        
 
         public decimal Total
         {
             get { return total; }
             set { total = value; OnPropertyChanged("Total"); }
         }
-        
+
 
         public XMLNaoProcessadoModel XmlNaoProcessado
         {
@@ -112,7 +121,7 @@ namespace SincronosXMLFiscal.ViewModel
             set { txtCaminhoArquivo = value; OnPropertyChanged("TxtCaminhoArquivo"); }
         }
 
-    
+
 
         public ObservableCollection<XMLNaoProcessadoModel> NaoProcessados
         {
