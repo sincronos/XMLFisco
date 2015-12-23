@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:infraConverters="clr-namespace:SincronosXMLFiscal.InfraEstrutura.Converters"
-        Title="Leitor XML Fiscal" Height="538.385" Width="771.245" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Leitor XML Fiscal" Height="541.385" Width="771.245" WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Window.Resources>
         <infraConverters:ZeroToStringConverter x:Key="ZeroToStringConverter" EmptStringValue="0"/>
@@ -30,8 +30,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
                         <RowDefinition Height="4*"/>
-                        <RowDefinition Height="329*"/>
-                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="335*"/>
+                        <RowDefinition Height="27*"/>
                         <RowDefinition Height="23*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -83,13 +83,14 @@
                                 <TextBlock Text="{Binding ElementName=dgNFCE,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}" TextAlignment="Center" Width="50"/>
                             </StatusBarItem>
                             <StatusBarItem>
-                                <TextBlock>Valor Total: </TextBlock>
+                                <TextBlock>Valor Total:</TextBlock>
                             </StatusBarItem>
                             <StatusBarItem>
                                 <TextBlock Text="{Binding Total,Converter={StaticResource ResourceKey=DecimaltoNumericConverter}}" Width="100"/>
                             </StatusBarItem>
                         </StatusBar>
                     </DockPanel>
+                    <Button Content="Imprimir" Command="{Binding LoadRDLCFormProcessadosCommand}" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,3,3" Grid.Row="3" VerticalAlignment="Top" Width="71"/>
                 </Grid>
             </TabItem>
 
@@ -116,7 +117,7 @@
                     <DockPanel LastChildFill="False" Grid.Row="3" Grid.Column="1" Margin="0,0,3,0">
                         <StatusBar DockPanel.Dock="Bottom">
                             <StatusBarItem>
-                                <TextBlock>Total de Arquivos: </TextBlock>
+                                <TextBlock>Total de Arquivos:</TextBlock>
                             </StatusBarItem>
                             <StatusBarItem>
                                 <TextBlock Text="{Binding ElementName=dgNaoProcessados,Path=Items.Count,Converter={StaticResource ResourceKey=ZeroToStringConverter}}" TextAlignment="Center" Width="50"/>

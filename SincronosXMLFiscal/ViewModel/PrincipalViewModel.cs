@@ -4,6 +4,7 @@ using SincronosXMLFiscal.BLL;
 using SincronosXMLFiscal.Commands;
 using Microsoft.Win32;
 using SincronosXMLFiscal.Util;
+using SincronosXMLFiscal.RDLCForms;
 using System.Data;
 using System.Xml.Linq;
 using System.IO;
@@ -19,7 +20,12 @@ namespace SincronosXMLFiscal.ViewModel
 
         private string txtCaminhoArquivo;
         private EmitenteBLL EmiteBLL;
+        
+        
+
         private ObservableCollection<TNfeProc> listaNFE = new ObservableCollection<TNfeProc>();
+        private ObservableCollection<TProcEvento> listaEventoNFe = new ObservableCollection<TProcEvento>();
+
         private ObservableCollection<XMLNaoProcessadoModel> naoProcessadosCollection = new ObservableCollection<XMLNaoProcessadoModel>();
         //private XMLNaoProcessadoModel xmlNaoProcessado = new XMLNaoProcessadoModel();
 
@@ -28,6 +34,7 @@ namespace SincronosXMLFiscal.ViewModel
 
         string PastaXMLSelecionado;
 
+        public RelayCommand LoadRDLCFormProcessadosCommand { get; set; }
         public RelayCommand ProcessarCommand { get; set; }
         public RelayCommand CaminhoPastaXMLCommand { get; set; }
 
@@ -37,9 +44,18 @@ namespace SincronosXMLFiscal.ViewModel
             EmiteBLL = new EmitenteBLL();
             PastaXMLSelecionado = "";
             TxtCaminhoArquivo = "";
+
+
             CaminhoPastaXMLCommand = new RelayCommand(CaminhoPastaXML);
             ProcessarCommand = new RelayCommand(Processar, CanProcessar);
+            LoadRDLCFormProcessadosCommand = new RelayCommand(LoadRDLCFormProcessados);
+            
 
+        }
+
+        private void LoadRDLCFormProcessados(object obj)
+        {
+            new FrmRDLCProcessados().ShowDialog();
         }
 
         private bool CanProcessar(object obj)
@@ -79,7 +95,9 @@ namespace SincronosXMLFiscal.ViewModel
                     else if (nameFile.Contains("-nfce.xml"))
                     {
                         ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(File.FullName));
+
                         Total += decimal.Parse(ListaNFE[cont].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"));
+                        
                     }
                     else
                     {
@@ -91,14 +109,11 @@ namespace SincronosXMLFiscal.ViewModel
 
                 }
                 catch
-                {
-                    //MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                {  }
 
             }
 
-
-
+            
         }
 
 
@@ -146,7 +161,11 @@ namespace SincronosXMLFiscal.ViewModel
             set { listaNFE = value; OnPropertyChanged("ListaNFE"); }
         }
 
-
+        public ObservableCollection<TProcEvento> ListaEventoNFe
+        {
+            get { return listaEventoNFe; }
+            set { listaEventoNFe = value; OnPropertyChanged("ListaEventoNFe"); }
+        }
 
     }
 }

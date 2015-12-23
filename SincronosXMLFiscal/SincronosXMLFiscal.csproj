@@ -37,10 +37,7 @@
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.VS2010.10.0.40219.1\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
@@ -49,13 +46,11 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -85,28 +80,37 @@
     </Compile>
     <Compile Include="BLL\EmitenteBLL.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Datasets\DS_XML.cs">
+      <DependentUpon>DS_XML.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Datasets\DS_XML.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_XML.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InfraEstrutura\Converters\DecimaltoNumericConverter.cs" />
     <Compile Include="InfraEstrutura\Converters\ZeroToStringConverter.cs" />
     <Compile Include="Model\MBase.cs" />
     <Compile Include="Model\nfe_v3_10.cs" />
     <Compile Include="Model\XMLNaoProcessadoModel.cs" />
+    <Compile Include="RDLCForms\FrmRDLCProcessados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RDLCForms\FrmRDLCProcessados.Designer.cs">
+      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\RotinasDiversas.cs" />
     <Compile Include="Util\UtilXml.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
     <Compile Include="View\WndPrincipal.xaml.cs">
       <DependentUpon>WndPrincipal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\WndReport.xaml.cs">
-      <DependentUpon>WndReport.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\WndPrincipal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\WndReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +133,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="RDLCForms\FrmRDLCProcessados.resx">
+      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RV_Processados.rdlc" />
+    <None Include="Datasets\DS_XML.xsc">
+      <DependentUpon>DS_XML.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DS_XML.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_XML.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\DS_XML.xss">
+      <DependentUpon>DS_XML.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +165,7 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
