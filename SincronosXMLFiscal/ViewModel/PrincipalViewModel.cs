@@ -55,7 +55,7 @@ namespace SincronosXMLFiscal.ViewModel
 
         private void LoadRDLCFormProcessados(object obj)
         {
-            new FrmRDLCProcessados().ShowDialog();
+            new FrmRDLCProcessados(ListaNFE).ShowDialog();
         }
 
         private bool CanProcessar(object obj)

@@ -77,7 +77,6 @@ E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\GeneratedInternalTypeHelper.g.
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal_MarkupCompile.lref
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
-E:\Sistemas\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.RDLCForms.FrmRDLCProcessados.resources
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.cache
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.compiled

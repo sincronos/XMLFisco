@@ -12,14 +12,14 @@
   <xs:element name="DS_XML" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_XML" msprop:Generator_UserDSName="DS_XML">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DT_Processados" msprop:Generator_TableClassName="DT_ProcessadosDataTable" msprop:Generator_TableVarName="tableDT_Processados" msprop:Generator_TablePropName="DT_Processados" msprop:Generator_RowDeletingName="DT_ProcessadosRowDeleting" msprop:Generator_RowChangingName="DT_ProcessadosRowChanging" msprop:Generator_RowEvHandlerName="DT_ProcessadosRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ProcessadosRowDeleted" msprop:Generator_UserTableName="DT_Processados" msprop:Generator_RowChangedName="DT_ProcessadosRowChanged" msprop:Generator_RowEvArgName="DT_ProcessadosRowChangeEvent" msprop:Generator_RowClassName="DT_ProcessadosRow">
+        <xs:element name="DT_Processados" msprop:Generator_TableClassName="DT_ProcessadosDataTable" msprop:Generator_TableVarName="tableDT_Processados" msprop:Generator_RowChangedName="DT_ProcessadosRowChanged" msprop:Generator_TablePropName="DT_Processados" msprop:Generator_RowDeletingName="DT_ProcessadosRowDeleting" msprop:Generator_RowChangingName="DT_ProcessadosRowChanging" msprop:Generator_RowEvHandlerName="DT_ProcessadosRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ProcessadosRowDeleted" msprop:Generator_RowClassName="DT_ProcessadosRow" msprop:Generator_UserTableName="DT_Processados" msprop:Generator_RowEvArgName="DT_ProcessadosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cNF" msprop:Generator_ColumnVarNameInTable="columncNF" msprop:Generator_ColumnPropNameInRow="cNF" msprop:Generator_ColumnPropNameInTable="cNFColumn" msprop:Generator_UserColumnName="cNF" type="xs:string" minOccurs="0" />
               <xs:element name="xMotivo" msprop:Generator_ColumnVarNameInTable="columnxMotivo" msprop:Generator_ColumnPropNameInRow="xMotivo" msprop:Generator_ColumnPropNameInTable="xMotivoColumn" msprop:Generator_UserColumnName="xMotivo" type="xs:string" minOccurs="0" />
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
               <xs:element name="dhEmi" msprop:Generator_ColumnVarNameInTable="columndhEmi" msprop:Generator_ColumnPropNameInRow="dhEmi" msprop:Generator_ColumnPropNameInTable="dhEmiColumn" msprop:Generator_UserColumnName="dhEmi" type="xs:string" minOccurs="0" />
-              <xs:element name="vNF" msprop:Generator_ColumnVarNameInTable="columnvNF" msprop:Generator_ColumnPropNameInRow="vNF" msprop:Generator_ColumnPropNameInTable="vNFColumn" msprop:Generator_UserColumnName="vNF" type="xs:string" minOccurs="0" />
+              <xs:element name="vNF" msprop:Generator_ColumnVarNameInTable="columnvNF" msprop:Generator_ColumnPropNameInRow="vNF" msprop:Generator_ColumnPropNameInTable="vNFColumn" msprop:Generator_UserColumnName="vNF" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
