@@ -4,7 +4,6 @@ using SincronosXMLFiscal.BLL;
 using SincronosXMLFiscal.Commands;
 using Microsoft.Win32;
 using SincronosXMLFiscal.Util;
-using SincronosXMLFiscal.RDLCForms;
 using System.Data;
 using System.Xml.Linq;
 using System.IO;
@@ -73,6 +72,7 @@ namespace SincronosXMLFiscal.ViewModel
             string[] files = System.IO.Directory.GetFiles(TxtCaminhoArquivo);
             
             int cont = 0;
+            Total = 0;
 
             foreach (FileInfo File in Arquivos)
             {

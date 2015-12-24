@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DS_XML" targetNamespace="http://tempuri.org/DS_XML.xsd" xmlns:mstns="http://tempuri.org/DS_XML.xsd" xmlns="http://tempuri.org/DS_XML.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSetRelatorio" targetNamespace="http://tempuri.org/DataSetRelatorio.xsd" xmlns:mstns="http://tempuri.org/DataSetRelatorio.xsd" xmlns="http://tempuri.org/DataSetRelatorio.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -9,10 +9,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_XML" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_XML" msprop:Generator_UserDSName="DS_XML">
+  <xs:element name="DataSetRelatorio" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRelatorio" msprop:Generator_UserDSName="DataSetRelatorio">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DT_Processados" msprop:Generator_TableClassName="DT_ProcessadosDataTable" msprop:Generator_TableVarName="tableDT_Processados" msprop:Generator_RowChangedName="DT_ProcessadosRowChanged" msprop:Generator_TablePropName="DT_Processados" msprop:Generator_RowDeletingName="DT_ProcessadosRowDeleting" msprop:Generator_RowChangingName="DT_ProcessadosRowChanging" msprop:Generator_RowEvHandlerName="DT_ProcessadosRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ProcessadosRowDeleted" msprop:Generator_RowClassName="DT_ProcessadosRow" msprop:Generator_UserTableName="DT_Processados" msprop:Generator_RowEvArgName="DT_ProcessadosRowChangeEvent">
+        <xs:element name="DT_Processados" msprop:Generator_TableClassName="DT_ProcessadosDataTable" msprop:Generator_TableVarName="tableDT_Processados" msprop:Generator_TablePropName="DT_Processados" msprop:Generator_RowDeletingName="DT_ProcessadosRowDeleting" msprop:Generator_RowChangingName="DT_ProcessadosRowChanging" msprop:Generator_RowEvHandlerName="DT_ProcessadosRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ProcessadosRowDeleted" msprop:Generator_UserTableName="DT_Processados" msprop:Generator_RowChangedName="DT_ProcessadosRowChanged" msprop:Generator_RowEvArgName="DT_ProcessadosRowChangeEvent" msprop:Generator_RowClassName="DT_ProcessadosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cNF" msprop:Generator_ColumnVarNameInTable="columncNF" msprop:Generator_ColumnPropNameInRow="cNF" msprop:Generator_ColumnPropNameInTable="cNFColumn" msprop:Generator_UserColumnName="cNF" type="xs:string" minOccurs="0" />

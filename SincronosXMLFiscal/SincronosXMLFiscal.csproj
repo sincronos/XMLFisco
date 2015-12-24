@@ -80,26 +80,22 @@
     </Compile>
     <Compile Include="BLL\EmitenteBLL.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Datasets\DS_XML.cs">
-      <DependentUpon>DS_XML.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Datasets\DS_XML.Designer.cs">
+    <Compile Include="DataSetRelatorio.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DS_XML.xsd</DependentUpon>
+      <DependentUpon>DataSetRelatorio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRDLCProcessados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRDLCProcessados.Designer.cs">
+      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
     </Compile>
     <Compile Include="InfraEstrutura\Converters\DecimaltoNumericConverter.cs" />
     <Compile Include="InfraEstrutura\Converters\ZeroToStringConverter.cs" />
     <Compile Include="Model\MBase.cs" />
     <Compile Include="Model\nfe_v3_10.cs" />
     <Compile Include="Model\XMLNaoProcessadoModel.cs" />
-    <Compile Include="RDLCForms\FrmRDLCProcessados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RDLCForms\FrmRDLCProcessados.Designer.cs">
-      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\RotinasDiversas.cs" />
     <Compile Include="Util\UtilXml.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
@@ -129,24 +125,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="FrmRDLCProcessados.resx">
+      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RDLCForms\FrmRDLCProcessados.resx">
-      <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RV_Processados.rdlc" />
-    <None Include="Datasets\DS_XML.xsc">
-      <DependentUpon>DS_XML.xsd</DependentUpon>
+    <EmbeddedResource Include="RV_Processados.rdlc" />
+    <None Include="DataSetRelatorio.xsc">
+      <DependentUpon>DataSetRelatorio.xsd</DependentUpon>
     </None>
-    <None Include="Datasets\DS_XML.xsd">
+    <None Include="DataSetRelatorio.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_XML.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetRelatorio.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Datasets\DS_XML.xss">
-      <DependentUpon>DS_XML.xsd</DependentUpon>
+    <None Include="DataSetRelatorio.xss">
+      <DependentUpon>DataSetRelatorio.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -168,6 +164,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
