@@ -399,7 +399,7 @@ namespace SincronosXMLFiscal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DT_ProcessadosRow AddDT_ProcessadosRow(string cNF, string xMotivo, string Id, string dhEmi, decimal vNF) {
+            public DT_ProcessadosRow AddDT_ProcessadosRow(string cNF, string xMotivo, string Id, System.DateTime dhEmi, decimal vNF) {
                 DT_ProcessadosRow rowDT_ProcessadosRow = ((DT_ProcessadosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cNF,
@@ -445,7 +445,7 @@ namespace SincronosXMLFiscal {
                 base.Columns.Add(this.columnxMotivo);
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columndhEmi = new global::System.Data.DataColumn("dhEmi", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columndhEmi = new global::System.Data.DataColumn("dhEmi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndhEmi);
                 this.columnvNF = new global::System.Data.DataColumn("vNF", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvNF);
@@ -639,10 +639,10 @@ namespace SincronosXMLFiscal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string dhEmi {
+            public System.DateTime dhEmi {
                 get {
                     try {
-                        return ((string)(this[this.tableDT_Processados.dhEmiColumn]));
+                        return ((global::System.DateTime)(this[this.tableDT_Processados.dhEmiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("O valor da coluna \'dhEmi\' na tabela \'DT_Processados\' é DBNull.", e);

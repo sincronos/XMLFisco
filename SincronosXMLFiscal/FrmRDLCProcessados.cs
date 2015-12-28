@@ -33,9 +33,8 @@ namespace SincronosXMLFiscal
 
         private void FrmRDLCProcessados_Load(object sender, EventArgs e)
         {
-            CarregaReport();
 
-           
+            CarregaReport();
         
         }
 
@@ -52,7 +51,7 @@ namespace SincronosXMLFiscal
                     ListaNFe[i].NFe.infNFe.ide.cNF,
                     ListaNFe[i].protNFe.infProt.xMotivo,
                     ListaNFe[i].NFe.infNFe.Id,
-                    ListaNFe[i].NFe.infNFe.ide.dhEmi,
+                    Convert.ToDateTime(ListaNFe[i].NFe.infNFe.ide.dhEmi),
                     decimal.Parse(ListaNFe[i].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"))
                     );
 

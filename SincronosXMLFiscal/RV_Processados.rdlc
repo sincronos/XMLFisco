@@ -346,8 +346,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Total de Registros: " &amp; Count(Fields!cNF.Value)</Value>
-                              <Style />
+                              <Value>="Nº de Registros: " &amp; Count(Fields!cNF.Value)</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -460,7 +462,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox15">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -469,6 +471,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!vNF.Value)</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
                             </TextRun>
@@ -476,7 +480,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
