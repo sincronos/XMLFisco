@@ -10,21 +10,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 namespace SincronosXMLFiscal
 {
     public partial class FrmRDLCProcessados : Form
     {
-        private IList<TNfeProc> ListaNFe;
-
-
+        private ObservableCollection<TNfeProc> ListaNFe;
+       
         public FrmRDLCProcessados()
         {
             InitializeComponent();
         }
 
 
-        public FrmRDLCProcessados(IList<TNfeProc> _ListaNFe)
+        public FrmRDLCProcessados(ObservableCollection<TNfeProc> _ListaNFe)
         {
             InitializeComponent();
             ListaNFe = _ListaNFe;
@@ -44,18 +44,34 @@ namespace SincronosXMLFiscal
         
             DataSetRelatorio.DT_ProcessadosDataTable dt = new DataSetRelatorio.DT_ProcessadosDataTable();
 
-            for (int i = 0; i < ListaNFe.Count; i++)
+
+            foreach (var item in ListaNFe)
             {
 
                 dt.AddDT_ProcessadosRow(
-                    ListaNFe[i].NFe.infNFe.ide.cNF,
-                    ListaNFe[i].protNFe.infProt.xMotivo,
-                    ListaNFe[i].NFe.infNFe.Id,
-                    Convert.ToDateTime(ListaNFe[i].NFe.infNFe.ide.dhEmi),
-                    decimal.Parse(ListaNFe[i].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"))
-                    );
+                  item.NFe.infNFe.ide.cNF,
+                  item.protNFe.infProt.xMotivo,
+                  item.NFe.infNFe.Id,
+                  Convert.ToDateTime(item.NFe.infNFe.ide.dhEmi),
+                  decimal.Parse(item.NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"))
+                  );
 
             }
+
+
+            //for (int i = 0; i < ListaNFe.Count; i++)
+            //{
+
+
+            //    dt.AddDT_ProcessadosRow(
+            //        ListaNFe[i].NFe.infNFe.ide.cNF,
+            //        ListaNFe[i].protNFe.infProt.xMotivo,
+            //        ListaNFe[i].NFe.infNFe.Id,
+            //        Convert.ToDateTime(ListaNFe[i].NFe.infNFe.ide.dhEmi),
+            //        decimal.Parse(ListaNFe[i].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"))
+            //        );
+
+            //}
 
             //BindingSource bs = new BindingSource();
             DT_ProcessadosBindingSource.DataSource = dt;

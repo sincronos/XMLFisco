@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using System;
 using System.Globalization;
+using System.Xml;
 
 namespace SincronosXMLFiscal.ViewModel
 {
@@ -19,7 +20,7 @@ namespace SincronosXMLFiscal.ViewModel
 
         private string txtCaminhoArquivo;
         private EmitenteBLL EmiteBLL;
-        
+        FileInfo fileInfo;
         
 
         private ObservableCollection<TNfeProc> listaNFE = new ObservableCollection<TNfeProc>();
@@ -95,17 +96,17 @@ namespace SincronosXMLFiscal.ViewModel
                     else if (nameFile.Contains("-nfce.xml"))
                     {
                         ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(File.FullName));
-
                         Total += decimal.Parse(ListaNFE[cont].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"));
-                        
+
+                        cont += 1;
+
                     }
                     else
                     {
 
                     }
-
                         
-                    cont += 1;
+                   
 
                 }
                 catch
@@ -135,12 +136,6 @@ namespace SincronosXMLFiscal.ViewModel
         }
 
 
-        ////public XMLNaoProcessadoModel XmlNaoProcessado
-        ////{
-        ////    get { return xmlNaoProcessado; }
-        ////    set { xmlNaoProcessado = value; OnPropertyChanged("XmlNaoProcessado"); }
-        ////}
-
         public string TxtCaminhoArquivo
         {
             get { return txtCaminhoArquivo; }
@@ -154,6 +149,7 @@ namespace SincronosXMLFiscal.ViewModel
             get { return naoProcessadosCollection; }
             set { naoProcessadosCollection = value; OnPropertyChanged("NaoProcessados"); }
         }
+
 
         public ObservableCollection<TNfeProc> ListaNFE
         {
