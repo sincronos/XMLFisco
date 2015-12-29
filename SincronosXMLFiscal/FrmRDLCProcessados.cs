@@ -77,8 +77,8 @@ namespace SincronosXMLFiscal
             DT_ProcessadosBindingSource.DataSource = dt;
             ReportDataSource rds = new ReportDataSource("DataSetRelatorio", DT_ProcessadosBindingSource);
             this.reportViewer1.LocalReport.DataSources.Add(rds);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SincronosXMLFiscal.RV_Processados.rdlc";
-
+            string caminho = System.Environment.CurrentDirectory + "\\" + @"Relatorios\";
+            this.reportViewer1.LocalReport.ReportPath = caminho + "RV_Processados.rdlc";
             this.reportViewer1.RefreshReport();
         }
     }
