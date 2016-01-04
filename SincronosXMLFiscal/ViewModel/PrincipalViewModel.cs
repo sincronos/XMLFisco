@@ -96,7 +96,7 @@ namespace SincronosXMLFiscal.ViewModel
                     else if (nameFile.Contains("-nfce.xml"))
                     {
                         ListaNFE.Add(UtilXml.DeserializeObject<TNfeProc>(File.FullName));
-                        Total += decimal.Parse(ListaNFE[cont].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"));
+                        Total += decimal.Parse(ListaNFE[cont].NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-US"));
 
                         cont += 1;
 

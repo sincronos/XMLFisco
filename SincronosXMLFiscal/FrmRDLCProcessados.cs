@@ -53,7 +53,7 @@ namespace SincronosXMLFiscal
                   item.protNFe.infProt.xMotivo,
                   item.NFe.infNFe.Id,
                   Convert.ToDateTime(item.NFe.infNFe.ide.dhEmi),
-                  decimal.Parse(item.NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-EN"))
+                  decimal.Parse(item.NFe.infNFe.total.ICMSTot.vNF, new CultureInfo("en-US"))
                   );
 
             }
@@ -74,6 +74,7 @@ namespace SincronosXMLFiscal
             //}
 
             //BindingSource bs = new BindingSource();
+            
             DT_ProcessadosBindingSource.DataSource = dt;
             ReportDataSource rds = new ReportDataSource("DataSetRelatorio", DT_ProcessadosBindingSource);
             this.reportViewer1.LocalReport.DataSources.Add(rds);
