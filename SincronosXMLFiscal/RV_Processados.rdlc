@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.72931cm</Width>
+              <Width>1.77618cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.50201cm</Width>
+              <Width>4.26924cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.71972cm</Width>
+              <Width>7.74848cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.09292cm</Width>
+              <Width>2.10249cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.68521cm</Width>
+              <Width>1.785cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -35,10 +35,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Número</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -65,10 +69,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Status</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -95,10 +103,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Chave</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -125,10 +137,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Emissão</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -155,10 +171,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Valor</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox28</rd:DefaultName>
@@ -190,7 +210,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cNF.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -220,7 +242,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!xMotivo.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -250,7 +274,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Id.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -280,10 +306,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!dhEmi.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>dhEmi</rd:DefaultName>
@@ -311,11 +341,14 @@
                             <TextRun>
                               <Value>=Fields!vNF.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>vNF</rd:DefaultName>
@@ -470,7 +503,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!vNF.Value)</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -519,13 +552,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <RepeatRowHeaders>true</RepeatRowHeaders>
-        <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSetRelatorio</DataSetName>
         <Top>0.47307cm</Top>
-        <Left>0.3937cm</Left>
+        <Left>0.3175cm</Left>
         <Height>1.8cm</Height>
-        <Width>25.72917cm</Width>
+        <Width>17.68138cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -533,13 +564,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.19792in</Height>
-    <Style />
+    <Height>0.95834in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>10.53459in</Width>
+  <Width>7.33618in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>1.60514cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -562,10 +597,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox29</rd:DefaultName>
-          <Top>1.90182cm</Top>
-          <Left>0.3937cm</Left>
+          <Top>0.92576cm</Top>
+          <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
-          <Width>25.72917cm</Width>
+          <Width>17.68138cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -593,8 +628,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox30</rd:DefaultName>
-          <Top>0.57891cm</Top>
-          <Left>0.55245cm</Left>
+          <Top>0.14937cm</Top>
+          <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>5.9925cm</Width>
           <ZIndex>1</ZIndex>
@@ -616,7 +651,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.2225cm</Height>
+      <Height>1.42875cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <Style>
@@ -627,10 +662,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

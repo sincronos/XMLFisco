@@ -8,6 +8,9 @@
     <Window.Resources>
         <infraConverters:ZeroToStringConverter x:Key="ZeroToStringConverter" EmptStringValue="0"/>
         <infraConverters:DecimaltoNumericConverter x:Key="DecimaltoNumericConverter" />
+        <Style x:Key="CellStyleAlignment" TargetType="{x:Type DataGridCell}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -50,7 +53,7 @@
                             <DataGridTextColumn Header="Status" Binding="{Binding Path=protNFe.infProt.xMotivo}"/>
                             <DataGridTextColumn Header="Chave" Binding="{Binding Path=NFe.infNFe.Id}"/>
                             <DataGridTextColumn Header="Emissão" Binding="{Binding Path=NFe.infNFe.ide.dhEmi}"/>
-                            <DataGridTextColumn Header="Total"  Binding="{Binding NFe.infNFe.total.ICMSTot.vNF}"/>
+                            <DataGridTextColumn Header="Total" CellStyle="{StaticResource ResourceKey=CellStyleAlignment}" Binding="{Binding NFe.infNFe.total.ICMSTot.vNF}"/>
                         </DataGrid.Columns>
 
                         <DataGrid.RowDetailsTemplate>

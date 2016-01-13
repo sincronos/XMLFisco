@@ -40,8 +40,7 @@ namespace SincronosXMLFiscal
 
         private void CarregaReport()
         {
-
-        
+           
             DataSetRelatorio.DT_ProcessadosDataTable dt = new DataSetRelatorio.DT_ProcessadosDataTable();
 
 
@@ -74,7 +73,12 @@ namespace SincronosXMLFiscal
             //}
 
             //BindingSource bs = new BindingSource();
-            
+
+            FrmRDLCProcessados FrmRDLCProcessados = new FrmRDLCProcessados();
+            var setup = FrmRDLCProcessados.reportViewer1.GetPageSettings();
+            setup.Margins = new System.Drawing.Printing.Margins(1, 1, 1, 1);
+            FrmRDLCProcessados.reportViewer1.SetPageSettings(setup);
+
             DT_ProcessadosBindingSource.DataSource = dt;
             ReportDataSource rds = new ReportDataSource("DataSetRelatorio", DT_ProcessadosBindingSource);
             this.reportViewer1.LocalReport.DataSources.Add(rds);
