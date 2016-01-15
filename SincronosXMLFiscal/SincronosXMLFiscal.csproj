@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="InfraEstrutura\Converters\DecimaltoNumericConverter.cs" />
     <Compile Include="InfraEstrutura\Converters\ZeroToStringConverter.cs" />
+    <Compile Include="Model\CfopAnaliticoModel.cs" />
     <Compile Include="Model\MBase.cs" />
     <Compile Include="Model\nfe_v3_10.cs" />
     <Compile Include="Model\XMLNaoProcessadoModel.cs" />

@@ -80,3 +80,11 @@ E:\Sistemas\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.WebForm
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.FrmRDLCProcessados.resources
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.cache
 E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.compiled
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.csprojResolveAssemblyReference.cache
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal_MarkupCompile.lref
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.FrmRDLCProcessados.resources
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.cache
+F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.compiled
