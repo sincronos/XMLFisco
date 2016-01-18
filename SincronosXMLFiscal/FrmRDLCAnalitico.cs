@@ -38,10 +38,34 @@ namespace SincronosXMLFiscal
             DataSetRelatorio.DT_AnaliticoDataTable dt = new DataSetRelatorio.DT_AnaliticoDataTable();
 
 
-            foreach (var item in listaCfop)
+            var novaLista = listaCfop.GroupBy(x => new { x.Data,x.Serie,x.Cfop, x.Aliquota })
+                .Select(y => new CfopAnaliticoModel()
+                {
+                    Aliquota = y.Key.Aliquota,
+                    BaseCalculo = y.Sum(g => Convert.ToDecimal(g.BaseCalculo)),
+                    Cfop = y.Key.Cfop,
+                    Data = y.Key.Data,
+                    Isento = y.Sum(g => Math.Round(Convert.ToDecimal(g.Isento),2)),
+                    Outros = y.Sum(g => Math.Round(Convert.ToDecimal(g.Outros),2)),
+                    Serie = y.Key.Serie,
+                    Tributado = y.Sum(g => Math.Round(Convert.ToDecimal(g.Tributado),2))
+
+                }
+                );
+
+
+
+            foreach (var item in novaLista)
             {
 
-                dt.AddDT_AnaliticoRow(item.Aliquota, item.BaseCalculo, item.Cfop, item.Data, item.Isento, item.Outros, item.Serie, item.Tributado);
+                dt.AddDT_AnaliticoRow(item.Aliquota, 
+                    item.BaseCalculo, 
+                    item.Cfop, 
+                    Convert.ToDateTime(item.Data).ToShortDateString(),
+                    item.Isento, 
+                    item.Outros, 
+                    item.Serie, 
+                    item.Tributado);
 
             }
 
