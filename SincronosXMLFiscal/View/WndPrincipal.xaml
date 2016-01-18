@@ -3,14 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:infraConverters="clr-namespace:SincronosXMLFiscal.InfraEstrutura.Converters"
-        Title="Leitor XML Fiscal" Height="541.385" Width="771.245" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Leitor XML Fiscal" Height="585.385" Width="771.245" WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Window.Resources>
         <infraConverters:ZeroToStringConverter x:Key="ZeroToStringConverter" EmptStringValue="0"/>
         <infraConverters:DecimaltoNumericConverter x:Key="DecimaltoNumericConverter" />
+
+        <Style x:Key="BotoesComando" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+
         <Style x:Key="CellStyleAlignment" TargetType="{x:Type DataGridCell}">
             <Setter Property="HorizontalAlignment" Value="Right"/>
         </Style>
+
     </Window.Resources>
 
     <Grid>
@@ -33,8 +41,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44*"/>
                         <RowDefinition Height="4*"/>
-                        <RowDefinition Height="335*"/>
-                        <RowDefinition Height="27*"/>
+                        <RowDefinition Height="331*"/>
+                        <RowDefinition Height="34*"/>
                         <RowDefinition Height="23*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -93,8 +101,16 @@
                             </StatusBarItem>
                         </StatusBar>
                     </DockPanel>
-                    <Button Content="Imprimir" Command="{Binding LoadRDLCFormProcessadosCommand}" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,3,3" Grid.Row="3" VerticalAlignment="Top" Width="71"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,243,0">
+                        <Button Content="Imprimir" Command="{Binding LoadRDLCFormProcessadosCommand}" Style="{StaticResource ResourceKey=BotoesComando}"/>
+                        <Button Content="Analítico" Command="{Binding LoadRDLCFormAnaliticoCommand}" Style="{StaticResource ResourceKey=BotoesComando}"/>
+                    </StackPanel>
+
+
+
                 </Grid>
+
             </TabItem>
 
             <TabItem Header="Não Processados">

@@ -24,7 +24,8 @@ namespace SincronosXMLFiscal.ViewModel
         FileInfo fileInfo;
         CultureInfo usCulture = new CultureInfo("en-US");
         NumberFormatInfo dbNumberFormat;
-        
+
+        List<CfopAnaliticoModel> listaCfop;
 
         private ObservableCollection<TNfeProc> listaNFE = new ObservableCollection<TNfeProc>();
         private ObservableCollection<TProcEvento> listaEventoNFe = new ObservableCollection<TProcEvento>();
@@ -37,6 +38,7 @@ namespace SincronosXMLFiscal.ViewModel
 
         string PastaXMLSelecionado;
 
+        public RelayCommand LoadRDLCFormAnaliticoCommand { get; set; }
         public RelayCommand LoadRDLCFormProcessadosCommand { get; set; }
         public RelayCommand ProcessarCommand { get; set; }
         public RelayCommand CaminhoPastaXMLCommand { get; set; }
@@ -52,9 +54,15 @@ namespace SincronosXMLFiscal.ViewModel
             CaminhoPastaXMLCommand = new RelayCommand(CaminhoPastaXML);
             ProcessarCommand = new RelayCommand(Processar, CanProcessar);
             LoadRDLCFormProcessadosCommand = new RelayCommand(LoadRDLCFormProcessados);
+            LoadRDLCFormAnaliticoCommand = new RelayCommand(LoadRDLCFormAnalitico);
 
             dbNumberFormat = usCulture.NumberFormat;
            
+        }
+
+        private void LoadRDLCFormAnalitico(object obj)
+        {
+            new FrmRDLCAnalitico(listaCfop).ShowDialog();
         }
 
         private void LoadRDLCFormProcessados(object obj)
@@ -117,7 +125,7 @@ namespace SincronosXMLFiscal.ViewModel
 
             }
 
-            List<CfopAnaliticoModel> listaCfop = new List<CfopAnaliticoModel>();
+            listaCfop = new List<CfopAnaliticoModel>();
 
             foreach (var nota in ListaNFE)
             {
@@ -276,11 +284,6 @@ namespace SincronosXMLFiscal.ViewModel
                     //List<TNfeProc> ListaCFOP = new List<TNfeProc>(ListaNFE);
 
                     //var resultDetNFe = ListaCFOP.SelectMany(x => x.NFe.infNFe.det);
-
-                    
-
-                   
-
             
         }
 

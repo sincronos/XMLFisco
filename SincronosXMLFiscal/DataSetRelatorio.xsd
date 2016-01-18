@@ -23,6 +23,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DT_Analitico" msprop:Generator_TableClassName="DT_AnaliticoDataTable" msprop:Generator_TableVarName="tableDT_Analitico" msprop:Generator_RowChangedName="DT_AnaliticoRowChanged" msprop:Generator_TablePropName="DT_Analitico" msprop:Generator_RowDeletingName="DT_AnaliticoRowDeleting" msprop:Generator_RowChangingName="DT_AnaliticoRowChanging" msprop:Generator_RowEvHandlerName="DT_AnaliticoRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_AnaliticoRowDeleted" msprop:Generator_RowClassName="DT_AnaliticoRow" msprop:Generator_UserTableName="DT_Analitico" msprop:Generator_RowEvArgName="DT_AnaliticoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Aliquota" msprop:Generator_ColumnVarNameInTable="columnAliquota" msprop:Generator_ColumnPropNameInRow="Aliquota" msprop:Generator_ColumnPropNameInTable="AliquotaColumn" msprop:Generator_UserColumnName="Aliquota" type="xs:string" minOccurs="0" />
+              <xs:element name="BaseCalculo" msprop:Generator_ColumnVarNameInTable="columnBaseCalculo" msprop:Generator_ColumnPropNameInRow="BaseCalculo" msprop:Generator_ColumnPropNameInTable="BaseCalculoColumn" msprop:Generator_UserColumnName="BaseCalculo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cfop" msprop:Generator_ColumnVarNameInTable="columnCfop" msprop:Generator_ColumnPropNameInRow="Cfop" msprop:Generator_ColumnPropNameInTable="CfopColumn" msprop:Generator_UserColumnName="Cfop" type="xs:string" minOccurs="0" />
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:string" minOccurs="0" />
+              <xs:element name="Isento" msprop:Generator_ColumnVarNameInTable="columnIsento" msprop:Generator_ColumnPropNameInRow="Isento" msprop:Generator_ColumnPropNameInTable="IsentoColumn" msprop:Generator_UserColumnName="Isento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Outros" msprop:Generator_ColumnVarNameInTable="columnOutros" msprop:Generator_ColumnPropNameInRow="Outros" msprop:Generator_ColumnPropNameInTable="OutrosColumn" msprop:Generator_UserColumnName="Outros" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Serie" msprop:Generator_ColumnVarNameInTable="columnSerie" msprop:Generator_ColumnPropNameInRow="Serie" msprop:Generator_ColumnPropNameInTable="SerieColumn" msprop:Generator_UserColumnName="Serie" type="xs:string" minOccurs="0" />
+              <xs:element name="Tributado" msprop:Generator_ColumnVarNameInTable="columnTributado" msprop:Generator_ColumnPropNameInRow="Tributado" msprop:Generator_ColumnPropNameInTable="TributadoColumn" msprop:Generator_UserColumnName="Tributado" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

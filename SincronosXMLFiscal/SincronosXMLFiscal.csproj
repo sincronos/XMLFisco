@@ -88,6 +88,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetRelatorio.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmRDLCAnalitico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRDLCAnalitico.Designer.cs">
+      <DependentUpon>FrmRDLCAnalitico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRDLCProcessados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="FrmRDLCAnalitico.resx">
+      <DependentUpon>FrmRDLCAnalitico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRDLCProcessados.resx">
       <DependentUpon>FrmRDLCProcessados.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +145,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RV_Analitico.rdlc" />
     <EmbeddedResource Include="RV_Processados.rdlc" />
     <None Include="DataSetRelatorio.xsc">
       <DependentUpon>DataSetRelatorio.xsd</DependentUpon>

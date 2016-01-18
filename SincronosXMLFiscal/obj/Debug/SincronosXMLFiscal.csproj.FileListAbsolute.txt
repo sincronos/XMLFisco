@@ -88,3 +88,4 @@ F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal_MarkupComp
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.FrmRDLCProcessados.resources
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.cache
 F:\Sincronos\XMLFisco\SincronosXMLFiscal\obj\Debug\RdlCompile.compiled
+E:\Sistemas\XMLFisco\SincronosXMLFiscal\obj\Debug\SincronosXMLFiscal.FrmRDLCAnalitico.resources
